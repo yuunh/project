@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"mybatis-3-mapper.dtd" >
+
+<mapper namespace="memberMapper">
+
+	<resultMap type="MemberVO" id="memberResultSet">
+		<result column="USERID" property="userId" />
+		<result column="USERPASS" property="userPass" />
+		<result column="USERNAME" property="userName" />
+		<result column="USERPHON" property="userPhon" />
+		<result column="USERADDR1" property="userAddr1" />
+		<result column="USERADDR2" property="userAddr2" />
+		<result column="USERADDR3" property="userAddr3" />
+		<result column="REGDATE" property="regDate" />
+		<result column="VERIFY" property="verify" />
+	</resultMap>
+
+	<!-- 회원 가입 -->
+	<insert id="signup" parameterType="MemberVO">
+	   insert 
+	   into tbl_member
+	   (
+	   	 userId
+	   , userPass
+	   , userName
+	   , userPhon
+	   )
+	   values
+	   (
+	   	 #{userId}
+	   , #{userPass}
+	   , #{userName}
+	   , #{userPhon}
+	   ) 
+	</insert>
+</mapper>
